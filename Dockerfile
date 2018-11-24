@@ -10,6 +10,8 @@ RUN npm run build
 
 #Recovering image for the serving phase
 FROM nginx
+#Specify port exposure for a port in AWS (not usefull locally)
+EXPOSE 80
 
 #Recovering build folder from the bulder phase
 COPY --from=builder /app/build /usr/share/nginx/html
